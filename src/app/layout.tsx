@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { cookies } from "next/headers";
 import { Suspense } from "react";
 import { WEBSITE_HOST_URL } from "./contants";
-import { fonts } from "./font";
 import "./globals.css";
+import { cookieName } from "./i18n/settings";
 import Loading from "./loading";
 import { Providers } from "./providers";
 
 const meta = {
-    title: "Title",
+    title: "Ecommerce",
     description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis amet molestiae soluta qui vitae facilis.",
     image: `${WEBSITE_HOST_URL}/meta/og-preview.png`,
@@ -74,19 +75,21 @@ export const metadata: Metadata = {
         },
     },
 };
-const Header = dynamic(() => import("@/components/layout/Header"));
-const Footer = dynamic(() => import("@/components/layout/Footer"));
+const Header = dynamic(() => import("@/components/layout").then((mod) => mod.Header));
+const Footer = dynamic(() => import("@/components/layout").then((mod) => mod.Footer));
 
 export default function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const cookieStore = cookies();
+    const lang = cookieStore.get(cookieName)?.value || "en";
     return (
         <html lang="en">
-            <body className={fonts.rubik.variable}>
+            <body>
                 <Suspense fallback={<Loading />}>
-                    <Providers>
+                    <Providers lang={lang}>
                         <Header />
                         {children}
                         <Footer />
