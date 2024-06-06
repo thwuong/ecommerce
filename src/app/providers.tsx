@@ -1,8 +1,26 @@
 "use client";
 
-import { ChakraProvider } from "@chakra-ui/react";
 import { theme } from "./theme";
 
-export function Providers({ children }: { children: React.ReactNode }) {
-    return <ChakraProvider theme={theme}>{children}</ChakraProvider>;
+import { setCurrentLang } from "@/lib/features/global/globalSlice";
+import { ChakraProvider } from "@chakra-ui/react";
+import { useEffect, useRef } from "react";
+import { Provider } from "react-redux";
+import { AppStore, makeStore } from "../lib/store";
+export function Providers({ children, lang }: { children: React.ReactNode; lang: string }) {
+    const storeRef = useRef<AppStore>();
+    if (!storeRef.current) {
+        // Create the store instance the first time this renders
+        storeRef.current = makeStore();
+    }
+    useEffect(() => {
+        if (storeRef.current) {
+            storeRef.current.dispatch(setCurrentLang(lang));
+        }
+    }, [lang]);
+    return (
+        <Provider store={storeRef.current}>
+            <ChakraProvider theme={theme}>{children}</ChakraProvider>
+        </Provider>
+    );
 }
