@@ -21,6 +21,9 @@ const config: Config = {
             spacing: {
                 standard: "1520px",
             },
+            screens: {
+                standard: "1520px",
+            },
             colors: {
                 brand: {
                     "50": "#fff0f2",
@@ -38,6 +41,9 @@ const config: Config = {
                 typo: {
                     primary: "rgb(4, 20, 33)",
                     secondary: "rgba(4, 20, 33, 0.75)",
+                },
+                background: {
+                    primary: "#F2F3F4",
                 },
             },
             fontSize: {

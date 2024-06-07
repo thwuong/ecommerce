@@ -1,0 +1,28 @@
+#slide-popular .slick-prev  {
+    right: 50px;
+    bottom: 0;
+    left: unset;
+    z-index: 2;
+    top: unset;
+    transform: translateY(100%);
+    width: 40px;
+    height: 40px;
+  }
+#slide-popular .slick-next {
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    top: unset;
+    transform: translateY(100%);
+    width: 40px;
+    height: 40px;
+}
+.slick-track .slick-slide > div {
+margin-right:20px;
+}
+.slick-track .slick-slide:nth-child(4n) > div {
+margin-right:0;
+}
+#slide-popular .slick-list {
+padding-top: 20px;
+}

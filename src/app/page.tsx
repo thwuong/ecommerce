@@ -1,13 +1,12 @@
-import Container from "@/components/container/Container";
-import Title from "@/components/text/Title";
+import { Hero } from "@/components/hero";
+import PopularNow from "@/components/product/PopularNow";
 import { getAllArticles } from "@/lib/articles";
 export default async function Home() {
     const data: [] = await getAllArticles();
     return (
         <main>
-            <Container>
-                <Title>Hello world</Title>
-            </Container>
+            <Hero />
+            <PopularNow />
         </main>
     );
 }
