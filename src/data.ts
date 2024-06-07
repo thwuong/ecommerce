@@ -49,3 +49,53 @@ export const categories: NavItem[] = [
         hasChildren: false,
     },
 ];
+export const footerMenu: NavItem[] = [
+    {
+        href: "/search",
+        label: "Search",
+        hasChildren: false,
+    },
+    {
+        href: "/contact",
+        label: "Contact",
+        hasChildren: false,
+    },
+    {
+        href: "/terms-of-service",
+        label: "Terms of Service",
+        hasChildren: false,
+    },
+    {
+        href: "/privacy-policy",
+        label: "Privacy Policy",
+        hasChildren: false,
+    },
+    {
+        href: "/refund-policy",
+        label: "Refund Policy",
+        hasChildren: false,
+    },
+    {
+        href: "/theme-features",
+        label: "Theme features",
+        hasChildren: false,
+    },
+];
+export const slides = ["/assets/images/slide-1.webp", "/assets/images/slide-2.webp", "/assets/images/slide-3.webp"];
+export const contentList = [
+    {
+        title: "Best in class headphones",
+        href: "/",
+        label: "Shop headphones",
+    },
+    {
+        title: "Premium wireless earbuds ",
+        href: "/",
+        label: "Shop earbuds",
+    },
+    {
+        title: "Wireless speakers ",
+        href: "/",
+        label: "SHOP SPEAKERS",
+    },
+];

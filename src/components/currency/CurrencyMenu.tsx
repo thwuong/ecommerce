@@ -67,7 +67,7 @@ function CurrencyMenu() {
                         height={7}
                         className="hover:bg-typo-primary/50"
                         gap={2}
-                        w={"fit-content"}
+                        w={"100%"}
                         shadow={"inherit"}
                         key={item.code}
                         onClick={() => selectedLang(item)}
