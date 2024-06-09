@@ -26,7 +26,7 @@ function Menu() {
     return (
         <section
             className={cn(
-                "relative z-10 bg-transparent duration-300 hover:bg-white group/header",
+                "relative z-50 bg-transparent duration-300 hover:bg-white group/header",
                 sticky && "fixed top-0 bg-white w-full py-4"
             )}
         >

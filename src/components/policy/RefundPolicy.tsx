@@ -17,10 +17,11 @@ function RefundPolicy() {
                             Free shipping for orders of $300 +
                         </Paragraph>
                         <Button
+                            as={"div"}
                             onClick={() => setMore(!more)}
                             variant={"outline"}
                             border={"1px solid rgba(255, 255, 255,.4)"}
-                            className="duration-300 !rounded-2xl max-lg:!rounded-full max-lg:w-[32px] max-lg:h-[32px] max-lg:!px-0"
+                            className="duration-300 cursor-pointer !rounded-2xl max-lg:!rounded-full max-lg:w-[32px] max-lg:h-[32px] max-lg:!px-0"
                             _hover={{
                                 bg: "transparent",
                                 outline: "2px solid rgba(255, 255, 255,.4)",

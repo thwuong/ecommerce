@@ -16,6 +16,7 @@
     "@fontsource/rajdhani": "^5.0.13",
     "@fontsource/roboto": "^5.0.13",
     "@reduxjs/toolkit": "^2.2.5",
+    "@uidotdev/usehooks": "^2.4.1",
     "accept-language": "^3.0.18",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.24",

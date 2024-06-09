@@ -46,7 +46,7 @@ function Hero() {
         setSlide(slide + index);
     };
     return (
-        <section className="w-full h-[calc(70vh)] -translate-y-[64px] -mb-16">
+        <section className="w-full h-[calc(100vh-97px)] max-h-[1000px] -translate-y-[64px] -mb-16">
             <div className="relative h-full overflow-hidden">
                 <div
                     className="absolute bg-transparent w-1/2 h-full left-0 z-10"

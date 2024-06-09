@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities; 
+
+@layer components {
+    .card-title {
+        @apply text-base font-bold leading-normal font-rajdhani
+    }
+    .card-price {
+        @apply text-base font-semibold leading-normal
+    }
+    .product-caption {
+        @apply text-base font-semibold opacity-50 max-lg:text-sm
+    }
+    .product-title {
+        @apply text-5xl font-bold leading-[1.1] max-lg:text-[32px]
+    }
+    .product-price {
+        @apply text-xl leading-8
+    }
+}
