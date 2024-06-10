@@ -44,6 +44,7 @@ const config: Config = {
                 },
                 background: {
                     primary: "#F2F3F4",
+                    card: "#21363E",
                 },
             },
             fontSize: {

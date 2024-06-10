@@ -8,10 +8,17 @@ export type ProductType = {
     slug?: string;
     title: string;
     description: string;
-    price: string;
+    price: number;
     discount?: string;
     colors?: string[];
-    rate?: number;
+    rating?: {
+        rate: number;
+    };
     staffPick?: boolean;
+    image: string;
+};
+export type AboutType = {
+    title: string;
+    description: string;
     image: string;
 };

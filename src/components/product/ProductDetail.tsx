@@ -39,7 +39,7 @@ function ProductDetail() {
             <motion.div
                 key={currentIndex}
                 initial={{
-                    x: 10,
+                    x: 100,
                     opacity: 0,
                     visibility: "hidden",
                 }}

@@ -99,3 +99,17 @@ export const contentList = [
         label: "SHOP SPEAKERS",
     },
 ];
+export const aboutList = [
+    {
+        title: "Convenience",
+        description:
+            "One of the biggest reasons for the popularity of earbuds is their convenience. They are small, lightweight, and portable, making them perfect for people who are always on-the-go. You can easily carry them in your pocket or bag and use them wherever you are, whether it's at the gym, on the train, or just walking around the park. This makes earbuds the ideal choice for people who want to enjoy their music and podcasts without being weighed down by bulky headphones.",
+        image: "/assets/images/convenience.webp",
+    },
+    {
+        title: "Superior sound quality",
+        description:
+            "With advancements in audio technology, earbuds now deliver rich, clear, and dynamic audio that can rival even the best over-ear headphones. The compact design of earbuds also makes it easier for manufacturers to include high-quality drivers, which results in a more immersive audio experience. Whether you're listening to your favorite album, watching a movie, or just taking a phone call, earbuds offer a convenient and high-quality audio experience that is hard to beat.",
+        image: "/assets/images/sound-quantity.webp",
+    },
+];

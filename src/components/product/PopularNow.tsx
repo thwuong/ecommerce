@@ -7,7 +7,7 @@ import { Container } from "../container";
 import { Heading, Paragraph } from "../text";
 
 function PopularNow() {
-    const { data, isLoading } = useGetProductsQuery();
+    const { data, isLoading } = useGetProductsQuery(4);
     return (
         <section className="w-full py-[100px] bg-background-primary max-lg:py-10">
             <Container>

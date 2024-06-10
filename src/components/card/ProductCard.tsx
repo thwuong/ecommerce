@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { ProductType } from "@/type";
 import { Badge } from "@chakra-ui/react";

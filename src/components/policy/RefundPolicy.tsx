@@ -65,7 +65,7 @@ function RefundPolicy() {
                                     With just a few clicks, you can have your items delivered right to your door. Start
                                     shopping now before this offer ends!
                                 </Paragraph>
-                                <ButtonLink className="text-[0.75rem] font-black font-roboto uppercase">
+                                <ButtonLink className="text-[0.75rem] font-black font-roboto uppercase hover:outline-white/20">
                                     Refund Policy
                                 </ButtonLink>
                             </div>
