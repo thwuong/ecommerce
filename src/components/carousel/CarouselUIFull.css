@@ -37,7 +37,7 @@
   position: unset;
 }
 .swiper-container .swiper-scrollbar-drag {
-  background: #fff;
+  background: inherit;
 }
 .swiper-button {
   position: absolute;

@@ -13,7 +13,12 @@ import { Heading, Paragraph } from "../text";
 type FooterProps = React.HTMLAttributes<HTMLElement>;
 function Footer({ className }: FooterProps) {
     return (
-        <footer className={cn("w-full bg-gradient-to-l to-[rgb(23,45,53)] from-[rgb(4,20,33)]", className)}>
+        <footer
+            className={cn(
+                "w-full bg-gradient-to-l to-[rgb(23,45,53)] from-[rgb(4,20,33)]",
+                className
+            )}
+        >
             <CTA />
             <Container>
                 <div className="grid grid-cols-12 max-lg:grid-cols-1 w-full pt-12 gap-10 max-lg:pt-10">
@@ -71,9 +76,9 @@ function Footer({ className }: FooterProps) {
                             A long-standing reputation
                         </Heading>
                         <Paragraph className="text-base text-balance font-semibold text-white">
-                            With years of experience and expertise passed down from generation to generation, we are
-                            known for our commitment to excellence and our ability to consistently supply innovative and
-                            reliable sound systems.
+                            With years of experience and expertise passed down from generation to
+                            generation, we are known for our commitment to excellence and our
+                            ability to consistently supply innovative and reliable sound systems.
                         </Paragraph>
                         <Link href={"/about-us"} className={cn("flex items-center gap-2")}>
                             <span className="text-base font-roboto duration-300 font-black text-white hover:opacity-80">
@@ -90,9 +95,10 @@ function Footer({ className }: FooterProps) {
                             Free shipping for orders of $300+
                         </Heading>
                         <Paragraph className="text-base text-balance font-semibold text-white">
-                            Take advantage of our exciting offer of free shipping on all orders over $300! With this
-                            limited-time offer, you can enjoy fast and reliable shipping on your purchases without
-                            having to worry about any extra costs.
+                            Take advantage of our exciting offer of free shipping on all orders over
+                            $300! With this limited-time offer, you can enjoy fast and reliable
+                            shipping on your purchases without having to worry about any extra
+                            costs.
                         </Paragraph>
                         <Link href={"/shipping-policy"} className={cn("flex items-center gap-2")}>
                             <span className="text-base font-roboto duration-300 font-black text-white hover:opacity-80">

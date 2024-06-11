@@ -8,8 +8,10 @@ function ArticleSingle() {
         <section className="w-full py-[100px] max-lg:py-10 z-[2] relative">
             <Container>
                 <article className="flex items-center gap-10 max-lg:flex-col">
-                    <div className="flex flex-col gap-[30px] py-16 max-lg:gap-5 w-[calc(50%)] max-lg:w-full">
-                        <Paragraph className="text-[22px] leading-8 font-semibold text-brand-700">EARBUDS</Paragraph>
+                    <div className="flex flex-col gap-[30px] py-16 max-lg:gap-5 w-[calc(50%)] max-lg:w-full max-lg:items-center max-lg:text-center">
+                        <Paragraph className="text-[22px] leading-8 font-semibold text-brand-700">
+                            EARBUDS
+                        </Paragraph>
                         <Heading
                             className="text-[55px] max-lg:text-[33px] font-black leading-[1.2] text-balance"
                             headingLevel={"h2"}
@@ -17,8 +19,9 @@ function ArticleSingle() {
                             How to choose earbuds that work for you?
                         </Heading>
                         <Paragraph className="text-2xl max-lg:text-[21px] font-semibold leading-9 text-balance">
-                            How to choose earbuds that work for you? With so many shapes and features, it’s easy to get
-                            confused when shopping earbuds. Let us help you find the product that fit your needs.
+                            How to choose earbuds that work for you? With so many shapes and
+                            features, it’s easy to get confused when shopping earbuds. Let us help
+                            you find the product that fit your needs.
                         </Paragraph>
                         <div className="flex items-center gap-2 mt-4">
                             <ButtonLink className="text-xs leading-normal font-black font-roboto uppercase text-white bg-brand-700 hover:outline-brand-700/20">

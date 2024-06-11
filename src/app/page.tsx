@@ -1,5 +1,5 @@
 import { AboutProduct } from "@/components/about";
-import { ArticleSingle } from "@/components/article";
+import { ArticleSingle, FromTheBlog } from "@/components/article";
 import { CollectionList } from "@/components/collection";
 import { GalleryProduct } from "@/components/gallery";
 import { Hero } from "@/components/hero";
@@ -18,6 +18,7 @@ export default async function Home() {
             <AboutProduct />
             <GalleryProduct />
             <OurTopPick />
+            <FromTheBlog />
         </main>
     );
 }

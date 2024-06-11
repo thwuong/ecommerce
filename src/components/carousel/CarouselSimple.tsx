@@ -1,36 +1,48 @@
 "use client";
-import { ProductType } from "@/type";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { memo, useRef } from "react";
 // import Swiper core and required modules
 import { Autoplay, Navigation, Pagination, Scrollbar } from "swiper/modules";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper/react";
 
 // Import Swiper styles
+import { cn } from "@/lib/utils";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Swiper as SwiperType } from "swiper/types";
-import { ProductBigCard } from "../card";
 import "./CarouselUIFull.css";
 type CarouselProps = {
     length?: number;
-    slidesToShow?: number;
-    slidesToScroll?: number;
-    slidesToShowOnMb?: number;
-    slidesToScrollOnMb?: number;
-    listItem?: ProductType[];
+    slidesPerView?: number;
+    slidesPerViewMb?: number;
+    children: React.ReactNode;
+    isProgress?: boolean;
+    isPagination?: boolean;
+    isNavigation?: boolean;
+    isProgressMb?: boolean;
+    isPaginationMb?: boolean;
+    isNavigationMb?: boolean;
+    isScrollbar?: boolean;
+    isScrollbarMb?: boolean;
+    spaceBetween?: number;
 };
 function CarouselBigCard(props: CarouselProps) {
     const {
-        length = 8,
-        listItem = Array(length).fill(0),
-        slidesToScroll = 1,
-        slidesToShow = 1,
-        slidesToScrollOnMb = 1,
-        slidesToShowOnMb = 1,
+        slidesPerView = 1,
+        slidesPerViewMb = 1,
+        children,
+        isProgress = false,
+        isPagination = false,
+        isNavigation = false,
+        isProgressMb = false,
+        isPaginationMb = false,
+        isNavigationMb = false,
+        isScrollbar = false,
+        isScrollbarMb = false,
+        spaceBetween = 50,
     } = props;
     const { width } = useWindowSize();
     const prevRef = useRef(null);
@@ -54,8 +66,15 @@ function CarouselBigCard(props: CarouselProps) {
     return (
         <section className="w-full relative swiper-container">
             <div className="flex items-center w-full swiper-button">
-                <div className="swiper-scrollbar" ref={scrollRef}></div>
-                <div className="max-lg:hidden">
+                <div
+                    className={cn(
+                        "swiper-scrollbar",
+                        !isScrollbar && "hidden",
+                        !isScrollbarMb ? "max-lg:hidden" : "max-lg:block"
+                    )}
+                    ref={scrollRef}
+                ></div>
+                <div className={cn(!isNavigation && "hidden", !isNavigationMb && "max-lg:hidden")}>
                     <div className="swiper-button-prev" ref={prevRef}></div>
                     <div className="swiper-button-next" ref={nextRef}></div>
                 </div>
@@ -63,32 +82,48 @@ function CarouselBigCard(props: CarouselProps) {
             <Swiper
                 // install Swiper modules
                 modules={[Navigation, Pagination, Scrollbar, Autoplay]}
-                spaceBetween={50}
-                slidesPerView={1}
+                spaceBetween={spaceBetween}
+                slidesPerView={slidesPerView}
                 autoplay={{
                     delay: 2500,
                     disableOnInteraction: false,
                 }}
-                navigation={{
-                    prevEl: prevRef.current,
-                    nextEl: nextRef.current,
-                }}
+                navigation={
+                    isNavigation && {
+                        prevEl: prevRef.current,
+                        nextEl: nextRef.current,
+                    }
+                }
                 onAutoplayTimeLeft={onAutoplayTimeLeft}
-                pagination={false}
+                pagination={isPagination}
                 scrollbar={{ draggable: true, el: scrollRef.current }}
                 onSwiper={handleOnSwiper}
                 onSlideChange={() => {}}
+                breakpoints={{
+                    "320": {
+                        slidesPerView: slidesPerViewMb,
+                        scrollbar: {
+                            enabled: isScrollbarMb,
+                        },
+                    },
+                    "678": {
+                        slidesPerView: slidesPerView,
+                        scrollbar: {
+                            enabled: isScrollbar,
+                        },
+                    },
+                }}
             >
-                {listItem.map((_, i) => {
-                    const key = `product-${i}`;
-                    return (
-                        <SwiperSlide key={key}>
-                            <ProductBigCard {..._} />
-                        </SwiperSlide>
-                    );
-                })}
+                {children}
 
-                <div className="autoplay-progress" slot="container-end">
+                <div
+                    className={cn(
+                        "autoplay-progress",
+                        !isProgress && "!hidden",
+                        !isProgressMb && "!max-lg:hidden"
+                    )}
+                    slot="container-end"
+                >
                     <svg viewBox="0 0 48 48" ref={progressCircle}>
                         <circle cx="24" cy="24" r="20"></circle>
                     </svg>

@@ -20,7 +20,7 @@ function GalleryItem({ image, price, title, rating }: ProductType) {
     return (
         <div className="relative w-full aspect-square">
             <Image src={image} alt={title} fill className="absolute w-full h-full object-cover" />
-            <div className="absolute top-1/2 left-1/2" ref={ref}>
+            <div className="absolute top-1/2 left-1/2 max-lg:top-4 max-lg:left-4" ref={ref}>
                 <div className="relative">
                     <div
                         onClick={() => setShow(!show)}
@@ -44,7 +44,10 @@ function GalleryItem({ image, price, title, rating }: ProductType) {
                         <div className="flex items-start justify-between flex-1 max-lg:flex-col max-lg:items-start gap-4">
                             <div className="flex flex-col">
                                 <Link href={"/"} className="relative group">
-                                    <Heading headingLevel={"h3"} className="card-title max-w-[120px]">
+                                    <Heading
+                                        headingLevel={"h3"}
+                                        className="card-title max-w-[120px]"
+                                    >
                                         {title}
                                     </Heading>
                                     <div className="w-0 duration-300 group-hover:w-full absolute left-0 bottom-0 bg-typo-primary h-[0.5px]"></div>
@@ -71,7 +74,7 @@ function GalleryProduct() {
                     {"Don't let the music die"}
                 </Heading>
             </Container>
-            <div className="w-full grid grid-cols-3 gap-[2px] mt-16">
+            <div className="w-full grid grid-cols-3 gap-[2px] mt-16 max-lg:mt-10 max-lg:grid-cols-1">
                 {!isLoading && data
                     ? data.map((product: ProductType, index: number) => {
                           const key = `product-${index}`;

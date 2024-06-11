@@ -31,7 +31,10 @@ function LanguageMenu() {
         // router.refresh();
         // window.location.href = `${path}?lang=${item.code}`;
     };
-    const currLang = React.useMemo(() => langData.find((item) => item.code === currentLanguage), [currentLanguage]);
+    const currLang = React.useMemo(
+        () => langData.find((item) => item.code === currentLanguage),
+        [currentLanguage]
+    );
     return (
         <Menu>
             {currLang ? (
@@ -47,7 +50,14 @@ function LanguageMenu() {
                     height={7}
                     minW={"fit-content"}
                     as={Button}
-                    rightIcon={<Image src={"/assets/icons/dropdown.svg"} alt="dropdown" width={12} height={12} />}
+                    rightIcon={
+                        <Image
+                            src={"/assets/icons/dropdown.svg"}
+                            alt="dropdown"
+                            width={12}
+                            height={12}
+                        />
+                    }
                 >
                     <span className="text-13 font-semibold text-white">{currLang.label}</span>
                 </MenuButton>

@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/lib/utils";
 import { ProductType } from "@/type";
 import { useWindowSize } from "@uidotdev/usehooks";
@@ -58,7 +59,9 @@ function CarouselUI(props: CarouselProps) {
     };
     useEffect(() => {
         if (width != 0) {
-            setProgress((100 / (length / (width! >= 768 ? slidesToShow : slidesToScrollOnMb))) * index);
+            setProgress(
+                (100 / (length / (width! >= 768 ? slidesToShow : slidesToScrollOnMb))) * index
+            );
         }
     }, [length, width, index, slidesToShow, slidesToScrollOnMb]);
 
