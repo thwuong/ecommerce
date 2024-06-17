@@ -3,7 +3,7 @@ import { useAppSelector } from "@/lib/hooks";
 import { Button, Menu, MenuButton, MenuItem, MenuList, Spinner } from "@chakra-ui/react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import React, { memo, useEffect, useState } from "react";
+import React, { memo } from "react";
 type LangType = {
     label: string;
     code: string;
@@ -26,22 +26,18 @@ function LanguageMenu() {
     const currentLanguage = useAppSelector((state) => state.globalStore.currentLanguage);
     const path = usePathname();
     const router = useRouter();
-    const [isClient, setIsClient] = useState(false);
     const selectedLang = (item: LangType) => {
         router.push(`${path}?lang=${item.code}`);
         // router.refresh();
         // window.location.href = `${path}?lang=${item.code}`;
     };
     const currLang = React.useMemo(
-        () => langData.find((item) => item.code === currentLanguage) || langData[0],
+        () => langData.find((item) => item.code === currentLanguage),
         [currentLanguage]
     );
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
     return (
         <Menu>
-            {isClient ? (
+            {currLang ? (
                 <MenuButton
                     bg={"transparent"}
                     className="animate-fade"
@@ -54,7 +50,14 @@ function LanguageMenu() {
                     height={7}
                     minW={"fit-content"}
                     as={Button}
-                    rightIcon={<Image src={"/assets/icons/dropdown.svg"} alt="dropdown" width={12} height={12} />}
+                    rightIcon={
+                        <Image
+                            src={"/assets/icons/dropdown.svg"}
+                            alt="dropdown"
+                            width={12}
+                            height={12}
+                        />
+                    }
                 >
                     <span className="text-13 font-semibold text-white">{currLang.label}</span>
                 </MenuButton>

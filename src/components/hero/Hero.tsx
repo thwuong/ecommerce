@@ -1,9 +1,10 @@
 "use client";
 import { contentList, slides } from "@/data";
 import { cn } from "@/lib/utils";
+import { useWindowSize } from "@uidotdev/usehooks";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import ButtonLink from "../button/ButtonLink";
 import { Container } from "../container";
@@ -45,8 +46,14 @@ function Hero() {
         }
         setSlide(slide + index);
     };
+    const { width } = useWindowSize();
+    const transformStyle = useMemo(() => {
+        const bonus = (slide - 1) * 8;
+        const pixel = slide !== 0 ? `${slide * 8 + 16 + bonus}px` : "0px";
+        return `translateX(calc(${100 * slide * -1}% + ${pixel}))`;
+    }, [slide]);
     return (
-        <section className="w-full h-[calc(70vh)] -translate-y-[64px] -mb-16">
+        <section className="w-full h-[calc(100vh-97px)] max-h-[1000px] -translate-y-[64px] -mb-16">
             <div className="relative h-full overflow-hidden">
                 <div
                     className="absolute bg-transparent w-1/2 h-full left-0 z-10"
@@ -95,7 +102,12 @@ function Hero() {
                 <motion.div
                     initial={{ width: "100%" }}
                     animate={{ width: 0 }}
-                    transition={{ duration: 0.5, repeat: Infinity, repeatType: "loop", repeatDelay: 2.5 }}
+                    transition={{
+                        duration: 0.5,
+                        repeat: Infinity,
+                        repeatType: "loop",
+                        repeatDelay: 2.5,
+                    }}
                     className="absolute bg-black h-full blur-[4px]"
                 ></motion.div>
                 <AnimatePresence>
@@ -108,14 +120,19 @@ function Hero() {
                         exit={{
                             visibility: "hidden",
                         }}
-                        transition={{ duration: 0.3, repeat: Infinity, repeatType: "loop", repeatDelay: 2.7 }}
+                        transition={{
+                            duration: 0.3,
+                            repeat: Infinity,
+                            repeatType: "loop",
+                            repeatDelay: 2.7,
+                        }}
                     ></motion.img>
                 </AnimatePresence>
 
                 <Container className="relative h-full">
                     <AnimatePresence>
                         <div className="flex flex-col h-full items-center justify-center gap-[30px]">
-                            <div className="text-[88px] font-roboto font-bold text-white flex gap-2 justify-center flex-wrap leading-[105.6px] max-w-3xl text-center">
+                            <div className="text-[88px] max-lg:text-[55px] font-roboto font-bold text-white flex gap-2 justify-center flex-wrap leading-[1.2] max-w-3xl text-center">
                                 {contentList[slide].title.split(" ").map((char, index) => {
                                     return (
                                         <motion.span
@@ -154,20 +171,41 @@ function Hero() {
                             </motion.div>
                         </div>
                     </AnimatePresence>
-                    <div className="w-full grid grid-cols-3 gap-2 z-10 absolute bottom-4">
-                        <div className="p-5 bg-black/10 flex gap-4 items-center relative border-t border-white/40">
+                    <div
+                        className={cn(
+                            "w-full grid grid-cols-3 gap-2 z-10 absolute bottom-4 max-lg:flex max-lg:left-0 max-lg:px-4"
+                        )}
+                        style={{
+                            transform: width && width > 678 ? "0" : transformStyle,
+                        }}
+                    >
+                        <div
+                            className={cn(
+                                "p-5 bg-black/10 flex gap-4 items-center relative border-t border-white/40 max-lg:min-w-full"
+                            )}
+                        >
                             {slide === 0 && (
                                 <motion.div
                                     initial={{ width: 0 }}
                                     animate={{ width: "100%" }}
                                     transition={{ duration: 3 }}
-                                    className={cn("absolute top-0 left-0 bg-white h-[2px]")}
+                                    className={cn(
+                                        "absolute top-0 left-0 bg-white h-[2px]",
+                                        "translate-x-100"
+                                    )}
                                 ></motion.div>
                             )}
-                            <Image src={"/assets/icons/headphone.svg"} alt="slide-1" width={32} height={32} />
-                            <Paragraph className="text-sm text-white font-semibold">Headphones</Paragraph>
+                            <Image
+                                src={"/assets/icons/headphone.svg"}
+                                alt="slide-1"
+                                width={32}
+                                height={32}
+                            />
+                            <Paragraph className="text-sm text-white font-semibold">
+                                Headphones
+                            </Paragraph>
                         </div>
-                        <div className="p-5 bg-black/10 flex gap-4 items-center relative border-t border-white/40">
+                        <div className="p-5 bg-black/10 flex gap-4 items-center relative border-t border-white/40 max-lg:min-w-full">
                             {slide === 1 && (
                                 <motion.div
                                     initial={{ width: 0 }}
@@ -176,10 +214,17 @@ function Hero() {
                                     className={cn("absolute top-0 left-0 bg-white h-[2px]")}
                                 ></motion.div>
                             )}
-                            <Image src={"/assets/icons/headphone.svg"} alt="slide-1" width={32} height={32} />
-                            <Paragraph className="text-sm text-white font-semibold">Earbuds</Paragraph>
+                            <Image
+                                src={"/assets/icons/headphone.svg"}
+                                alt="slide-1"
+                                width={32}
+                                height={32}
+                            />
+                            <Paragraph className="text-sm text-white font-semibold">
+                                Earbuds
+                            </Paragraph>
                         </div>
-                        <div className="p-5 bg-black/10 flex gap-4 items-center relative border-t border-white/40">
+                        <div className="p-5 bg-black/10 flex gap-4 items-center relative border-t border-white/40 max-lg:min-w-full">
                             {slide === 2 && (
                                 <motion.div
                                     initial={{ width: 0 }}
@@ -188,8 +233,15 @@ function Hero() {
                                     className={cn("absolute top-0 left-0 bg-white h-[2px]")}
                                 ></motion.div>
                             )}
-                            <Image src={"/assets/icons/headphone.svg"} alt="slide-1" width={32} height={32} />
-                            <Paragraph className="text-sm text-white font-semibold">Wireless speakers</Paragraph>
+                            <Image
+                                src={"/assets/icons/headphone.svg"}
+                                alt="slide-1"
+                                width={32}
+                                height={32}
+                            />
+                            <Paragraph className="text-sm text-white font-semibold">
+                                Wireless speakers
+                            </Paragraph>
                         </div>
                     </div>
                 </Container>

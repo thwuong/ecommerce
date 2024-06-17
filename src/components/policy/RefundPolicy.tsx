@@ -17,10 +17,11 @@ function RefundPolicy() {
                             Free shipping for orders of $300 +
                         </Paragraph>
                         <Button
+                            as={"div"}
                             onClick={() => setMore(!more)}
                             variant={"outline"}
                             border={"1px solid rgba(255, 255, 255,.4)"}
-                            className="duration-300 !rounded-2xl max-lg:!rounded-full max-lg:w-[32px] max-lg:h-[32px] max-lg:!px-0"
+                            className="duration-300 cursor-pointer !rounded-2xl max-lg:!rounded-full max-lg:w-[32px] max-lg:h-[32px] max-lg:!px-0"
                             _hover={{
                                 bg: "transparent",
                                 outline: "2px solid rgba(255, 255, 255,.4)",
@@ -64,7 +65,7 @@ function RefundPolicy() {
                                     With just a few clicks, you can have your items delivered right to your door. Start
                                     shopping now before this offer ends!
                                 </Paragraph>
-                                <ButtonLink className="text-[0.75rem] font-black font-roboto uppercase">
+                                <ButtonLink className="text-[0.75rem] font-black font-roboto uppercase hover:outline-white/20">
                                     Refund Policy
                                 </ButtonLink>
                             </div>

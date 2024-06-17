@@ -1,7 +1,12 @@
 /* theme.ts */
 import { extendTheme } from "@chakra-ui/react";
-import "@fontsource/rajdhani";
-import "@fontsource/roboto";
+import "@fontsource/rajdhani/400.css";
+import "@fontsource/rajdhani/500.css";
+import "@fontsource/rajdhani/600.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import "@fontsource/roboto/900.css";
 export const theme = extendTheme({
     fonts: {
         body: `'Rajdhani', sans-serif`,

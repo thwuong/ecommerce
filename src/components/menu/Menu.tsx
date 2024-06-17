@@ -26,12 +26,12 @@ function Menu() {
     return (
         <section
             className={cn(
-                "relative z-10 bg-transparent duration-300 hover:bg-white group/header",
+                "relative z-50 bg-transparent duration-300 hover:bg-white group/header",
                 sticky && "fixed top-0 bg-white w-full py-4"
             )}
         >
             <Container>
-                <div className="flex items-center max-lg:justify-between gap-10 py-5 ">
+                <div className="flex items-center justify-between gap-10 py-5 w-full">
                     <nav className="w-[635px] max-lg:hidden">
                         <ul className="flex gap-4 items-center gap-x-5 gap-y-[30px]">
                             {navList.map((nav: NavItem) => {
@@ -102,7 +102,10 @@ function Menu() {
                     </DrawerUI>
                     <Image src={"/assets/logos/logo.svg"} alt="logo" width={120} height={18} />
                     <div className="flex items-center gap-4 ml-auto max-lg:ml-0">
-                        <div className="relative cursor-pointer max-lg:hidden" onClick={() => onOpen()}>
+                        <div
+                            className="relative cursor-pointer max-lg:hidden"
+                            onClick={() => onOpen()}
+                        >
                             <FiMail
                                 fontSize={"24px"}
                                 className={cn(
@@ -170,7 +173,10 @@ function Menu() {
                                 {categories.map((nav: NavItem) => {
                                     return (
                                         <li className="relative group w-fit" key={nav.label}>
-                                            <Link href={"/"} className={cn("flex items-center gap-1")}>
+                                            <Link
+                                                href={"/"}
+                                                className={cn("flex items-center gap-1")}
+                                            >
                                                 <span className="text-base duration-300 font-semibold text-typo-primary hover:opacity-80">
                                                     {nav.label}
                                                 </span>
@@ -183,7 +189,12 @@ function Menu() {
                         </div>
                         <div className="flex gap-2 col-span-9">
                             <Link href={"/"} className="flex flex-col gap-4">
-                                <Image src={"/assets/images/parcel.webp"} alt="parcel" width={250} height={200} />
+                                <Image
+                                    src={"/assets/images/parcel.webp"}
+                                    alt="parcel"
+                                    width={250}
+                                    height={200}
+                                />
                                 <div className={cn("flex items-center gap-4")}>
                                     <span className="text-base font-roboto duration-300 font-black text-typo-primary hover:opacity-80">
                                         Gift
@@ -198,7 +209,12 @@ function Menu() {
                                 </div>
                             </Link>
                             <Link href={"/"} className="flex flex-col gap-4">
-                                <Image src={"/assets/images/parcel.webp"} alt="parcel" width={250} height={200} />
+                                <Image
+                                    src={"/assets/images/parcel.webp"}
+                                    alt="parcel"
+                                    width={250}
+                                    height={200}
+                                />
                                 <div className={cn("flex items-center gap-4")}>
                                     <span className="text-base font-roboto duration-300 font-black text-typo-primary hover:opacity-80">
                                         Gift
@@ -213,7 +229,12 @@ function Menu() {
                                 </div>
                             </Link>
                             <Link href={"/"} className="flex flex-col gap-4">
-                                <Image src={"/assets/images/parcel.webp"} alt="parcel" width={250} height={200} />
+                                <Image
+                                    src={"/assets/images/parcel.webp"}
+                                    alt="parcel"
+                                    width={250}
+                                    height={200}
+                                />
                                 <div className={cn("flex items-center gap-4")}>
                                     <span className="text-base font-roboto duration-300 font-black text-typo-primary hover:opacity-80">
                                         Gift
